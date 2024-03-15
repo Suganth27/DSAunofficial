@@ -1,0 +1,284 @@
+Program 1:
+
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+ int data;
+ node *next;
+};
+node *head=NULL;
+void insert(int num)
+{
+ node *newnode=new node();
+ newnode->data=num;
+ if(head==NULL)
+ {
+ newnode->next=head;
+ head=newnode;
+ }
+ else
+ {
+ node *temp=head;
+ while(temp->next!=NULL)
+ {
+ temp=temp->next;
+ }
+ temp->next=newnode;
+ newnode->next=NULL;
+ }
+}
+void display()
+{
+ node *temp=head;
+ while(temp!=0)
+ {
+ cout<<temp->data<<" ";
+ temp=temp->next;
+ }
+}
+int main()
+{
+ int n;
+ cin>>n;
+ for(int i=0;i<n;i++)
+ {
+ int num;
+ cin>>num;
+ insert(num);
+ }
+ display();
+}
+
+Program 2:
+
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+ int data;
+ node *next,*prev;
+};
+node *head=NULL;
+void insert(int num)
+{
+ node *newnode=new node();
+ newnode->data=num;
+ if(head==NULL)
+ {
+ head=newnode;
+ }
+ else
+ {
+ newnode->next=head;
+ head->prev=newnode;
+ head=newnode;
+ }
+}
+void display()
+{
+ node *temp=head;
+ node *tem;
+ while(temp!=0)
+ {
+ cout<<temp->data<<" ";
+ tem=temp;
+ temp=temp->next;
+ }cout<<endl;
+ cout<<"Doubly linked list backwards: ";
+ while(tem!=0)
+ {
+ cout<<tem->data<<" ";
+ tem=tem->prev;
+ }
+
+}
+int main()
+{
+ int n;
+ cin>>n;
+ cout<<"Doubly linked list forwards: ";
+ for(int i=0;i<n;i++)
+ {
+ int num;
+ cin>>num;
+ insert(num);
+ }
+ display();
+}
+
+Program 3:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define max 100
+int top=-1;
+int stack1[max];
+int isfull(int size)
+{
+ if(top==size-1)
+ {
+ return 1;
+ }
+ else
+ {
+ return 0;
+ }
+}
+void ispush(int size,int element)
+{
+ if(!isfull(size))
+ {
+ top++;
+ stack1[top]=element;
+ }
+ else
+ {
+ cout<<"Overflow";
+ }
+}
+void display()
+{
+ cout<<"Stack elements\n";
+ if(top==-1)
+ {
+ cout<<"Underflow";
+ }
+ else
+ {
+ for(int i=top;i>=0;i--)
+ {
+ cout<<stack1[i]<<endl;
+ }
+ }
+}
+int main()
+{
+ int n,num;
+ cin>>n;
+ for(int i=0;i<n;i++)
+ {
+ cin>>num;
+ ispush(n,num);
+ }display();
+}
+
+Program 4:
+
+#include<bits/stdc++.h>
+using namespace std;
+int top=-1;
+#define max 100
+int stack1 [max];
+void push(int element)
+{
+ top++;
+ stack1[top]=element;
+}
+void display()
+{
+ cout<<"Stack elements\n";
+ for(int i=top;i>=0;i--)
+ {
+ cout<<stack1[i]<<"\n";
+ }
+}
+int main()
+{
+ int n;
+ char y;
+ while(true)
+ {
+ cin>>n;
+ push(n);
+ cin>>y;
+ if(y=='N')
+ {
+ break;
+ }
+ }
+ display();
+}
+
+Program 5:
+
+#include<bits/stdc++.h>
+using namespace std;
+int top=-1;
+#define max 100
+char stack1[max];
+void push(char data)
+{
+ top++;
+ stack1[top]=data;
+}
+char pop()
+{
+ return stack1[top--];
+}
+int isempty()
+{
+ if(top==-1)
+ {
+ return 0;
+ }
+ else
+ {
+ return 1;
+ }
+}
+int pri(char s)
+{
+ if(s=='^')
+ return 3;
+ else if(s=='*'||s=='/')
+ return 2;
+ else if(s=='+'||s=='-')
+ return 1;
+ else
+ return -1;
+}
+void intopost(string st)
+{
+
+ for(int i=0;i<st.length();i++)
+ {
+ char s=st[i];
+ if(s>='a'&& s<='z'||s>='A'&& s<='Z')
+ {
+ cout<<s;
+ }
+ else if(s=='(')
+ {
+ push(s);
+ }
+ else if(s==')')
+ {
+ while(stack1[top]!='(')
+ {
+ cout<<pop();
+ }
+ pop();
+ }
+ else
+ {
+
+ while(pri(stack1[top])>=pri(s)&& isempty())
+ {
+ cout<<pop();
+ }
+ push(s);
+ }
+ }
+ while(isempty())
+ {
+ cout<<pop();
+ }
+}
+int main()
+{
+ string s;
+ getline(cin,s);
+ intopost(s);
+ return 0;
+}
