@@ -2,59 +2,45 @@ Program 11:
 
 #include<bits/stdc++.h>
 using namespace std;
-void insert(int ht[],int d,int n)
-{
-
- int p=0;
- int hf=d%n;
- int in=(hf+p*p)%n;
-
- while(ht[in]!=-1)
- {
- if(p==n-1)
- {
- p=-1;
- }
- p++;
- in=(hf+(p*p))%n;
- }
- ht[in]=d;
-}
 int main()
 {
- int n,m;
- cin>>n>>m;
- int a2[m];
- int hashtable[n];
- for(int i=0;i<n;i++)
- hashtable[i]=-1;
- for(int i=0;i<n;i++)
- {
-
- int num;
- cin>>num;
- insert(hashtable,num,n);
- }
- for(int i=0;i<m;i++)
- {
- cin>>a2[i];
- }
- int f=0;
- for(int i=0;i<m;i++)
- {
- for(int j=0;j<n;j++)
- {
- if(hashtable[j]==a2[i])
- f++;
-
-
- //cout<<hashtable[j]<<" ";
- }
- }
- if(f==m)
- cout<<"Subset";
- else
- cout<<" Not a Subset";
+    int num1,num2,data,i,j,k,count=0,hashkey;
+    cin>>num1>>num2;
+    vector<int>v1[num1];
+    vector<int>v2[num2];
+    for(i=0;i<num1;i++)
+    {
+        cin>>data;
+        hashkey=data%num1;
+        v1[hashkey].push_back(data);
+    }
+    for(i=0;i<num2;i++)
+    {
+        cin>>data;
+        hashkey=data%num2;
+        v2[hashkey].push_back(data);
+    }
+    for(i=0;i<num2;i++)
+    {
+        if(v2[i].size()>0)
+        {
+            for(j=0;j<v2[i].size();j++)
+            {
+                int searchele=v2[i][j];
+                hashkey=searchele%num1;
+              for(k=0;k<v1[hashkey].size();k++)
+                if(v1[hashkey][k]==searchele)
+                {
+                  count++;
+                  break;
+                }
+            }
+        }
+    }
+    if(count==num2)
+     cout<<"Subset";
+    else
+     cout<<"Not a subset";
 }
 
 Program 12:
