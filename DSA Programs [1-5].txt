@@ -1,4 +1,9 @@
 Program 1:
+Sample 1 Input
+5
+3 4 21 232 89
+Sample 1 Output
+3 4 21 232 89
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -51,6 +56,12 @@ int main()
 }
 
 Program 2:
+Sample 1 Input
+5
+21 13 24 35 3
+Sample 1 Output
+Doubly linked list forwards: 3 35 24 13 21
+Doubly linked list backwards: 21 13 24 35 3
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -108,6 +119,20 @@ int main()
 }
 
 Program 3:
+Sample 1 Input
+5
+90
+1
+234
+89
+23
+Sample 1 Output
+Stack elements
+23
+89
+234
+1
+90 
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -164,6 +189,21 @@ int main()
 }
 
 Program 4:
+Sample 1 Input
+20
+Y
+231
+Y
+190
+Y
+98
+N
+Sample 1 Output
+Stack elements
+98
+190
+231
+20
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -201,6 +241,13 @@ int main()
 }
 
 Program 5:
+Sample 1 Input
+a+b*(c^d-e)^(f+g*h)-i
+Sample 1 Output
+abcd^e-fgh*+^*+iSample 2 Input
+(a+b)*(c^d+e)^(f+g)*h
+Sample 2 Output
+ab+cd^e+fg+^*h*
 
 #include<bits/stdc++.h>
 using namespace std;
