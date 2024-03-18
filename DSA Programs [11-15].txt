@@ -1,4 +1,17 @@
 Program 11:
+Sample 1 Input
+6
+4
+11 1 13 21 3 7
+11 3 7 1
+Sample 1 Output
+Subset
+Sample 2 Input
+6
+5
+11 1 13 21 3 7
+11 3 7 1 19
+Not a Subset
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -40,10 +53,32 @@ int main()
     if(count==num2)
      cout<<"Subset";
     else
-     cout<<"Not a subset";
+     cout<<"Not a Subset";
 }
 
 Program 12:
+Sample 1 Input
+3
+12
+13
+14
+2
+Sample 1 Output
+Element deleted from queue is : 12
+Element deleted from queue is : 13
+Sample 2 Input
+5
+13
+14
+15
+16
+17
+4
+Sample 2 Output
+Element deleted from queue is : 13
+Element deleted from queue is : 14
+Element deleted from queue is : 15
+Element deleted from queue is : 16
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -80,6 +115,11 @@ int main()
 }
 
 Program 13:
+Sample 1 Input
+5
+3 4 21 232 89
+Sample 1 Output
+89 232 21 4 3
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -128,6 +168,13 @@ int main()
 }
 
 Program 14:
+Sample 1 Input
+5
+23 22 12 82 12
+99
+Sample 1 Output
+12 82 12 22 23
+99 12 82 12 22 23
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -180,6 +227,14 @@ int main()
 }
 
 Program 15:
+Sample 1 Input
+JNCAB
+Sample 1 Output
+BACNJ
+Sample 2 Input
+DEFG CVDF
+Sample 2 Output
+FDVC GFED
 
 #include<bits/stdc++.h>
 using namespace std;
